@@ -25,8 +25,10 @@ function grab_relatives_info(href){
                 var biography = $(response).find('.data-bio #fullBio').text().trim();
                 var headstone_inscription = $(response).find('.data-inscription').text().trim();
                 var gravesite_details = $(response).find('#gravesite-details').text().trim();
-                var realative = $(`.member-item[data-href="${href}"] .flex-grow-1`)
+                var ancestry_hints = $(response).find('#ancestryHints .list-group li a')
+                var realative = $(`.member-item[data-href="${href}"] .flex-grow-1`);
 
+                
                 // Add any data that was found to the realatives tile on the page and modify its css to make it stand out
                 if(biography !== ''){
                     realative.append(`<div id="obituary"><label><strong>Biography</strong><p class="realative_info">${biography}</p></div>`)
@@ -39,6 +41,16 @@ function grab_relatives_info(href){
                if(gravesite_details !== ''){
                     realative.append(`<div id="gravesite_data"><label><strong>Gravesite Details</strong></label><p class="realative_info">${gravesite_details}</p></div>`)
                     realative.css('background-color', 'rgb(204, 255, 204)');
+               }
+               if(ancestry_hints.text().trim() !== ''){
+                   realative.append(`<div id="ancestory_hint_data"><label><strong>Ancestry Hints</strong></label><ul>`);
+                   ancestry_hints.forEach(function(hint) {
+                       realative.append(`<li class="realative_info">${hint}</li>`);
+                       // Perform some action for each href
+                      
+                    
+                   });
+                   realative.append(`</ul></div>`);
                }
 
 

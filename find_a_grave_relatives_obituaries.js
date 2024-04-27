@@ -24,6 +24,7 @@ function grab_relatives_info(href){
                 // Filter the response to only include elements with classes ".data-bio" and ".data-inscription"
                 var biography = $(response).find('.data-bio #fullBio').text().trim();
                 var headstone_inscription = $(response).find('.data-inscription').text().trim();
+                var gravesite_details = $(response).find('#gravesite-details').text().trim();
                 var realative = $(`.member-item[data-href="${href}"] .flex-grow-1`)
 
                 // Add any data that was found to the realatives tile on the page and modify its css to make it stand out
@@ -35,6 +36,10 @@ function grab_relatives_info(href){
                     realative.append(`<div id="headstone_inscription"><label><strong>Headstone Inscription</strong></label><p class="realative_info">${headstone_inscription}</p></div>`)
                     realative.css('background-color', 'rgb(204, 255, 204)');
                 }
+               if(gravesite_details !== ''){
+                    realative.append(`<div id="gravesite_data"><label><strong>Gravesite Details</strong></label><p class="realative_info">${gravesite_details}</p></div>`)
+                    realative.css('background-color', 'rgb(204, 255, 204)');
+               }
 
 
           },

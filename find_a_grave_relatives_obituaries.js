@@ -42,16 +42,7 @@ function grab_relatives_info(href){
                     realative.append(`<div id="gravesite_data"><label><strong>Gravesite Details</strong></label><p class="realative_info">${gravesite_details}</p></div>`)
                     realative.css('background-color', 'rgb(204, 255, 204)');
                }
-               if(ancestry_hints.text().trim() !== ''){
-                   realative.append(`<div id="ancestory_hint_data"><label><strong>Ancestry Hints</strong></label><ul>`);
-                   ancestry_hints.forEach(function(hint) {
-                       realative.append(`<li class="realative_info">${hint}</li>`);
-                       // Perform some action for each href
-                      
-                    
-                   });
-                   realative.append(`</ul></div>`);
-               }
+               
 
 
           },

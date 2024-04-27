@@ -4,6 +4,7 @@
 // @include     /^https://www.findagrave.com/memorial/*
 // @run-at      document-idle
 // @require https://code.jquery.com/jquery-3.7.1.min.js
+// @updateURL https://raw.githubusercontent.com/builder35/tamper_monkey/main/find_a_grave_relatives_obituaries.js
 // ==/UserScript==
 
 function grab_realitive_hrefs(){
